@@ -9,8 +9,8 @@ import org.junit.Test;
 
 public class ConstructorTest extends BaseTest {
 
-    @DisplayName("Проверка переключения между разделами: Булки, Соусы, Начинки")
-    @Description("Раздел Соусы")
+    @DisplayName("Проверка переключения на раздел 'Соусы'")
+    @Description("Убедиться, что вкладка 'Соусы' (2‑я) становится активной после клика")
     @Test
     public void switchToSauceTest() {
         driver.get(Endpoints.BASE_URL);
@@ -19,8 +19,8 @@ public class ConstructorTest extends BaseTest {
         mainPage.clickTab(2);
         Assert.assertTrue(mainPage.isTabActive(2));
     }
-    @DisplayName("Проверка переключения между разделами: Булки, Соусы, Начинки")
-    @Description("Раздел Начинки")
+    @DisplayName("Проверка переключения на раздел 'Начинки'")
+    @Description("Убедиться, что вкладка 'Начинки' (3‑я) становится активной после клика")
     @Test
 
     public void switchToFillingTest() {
@@ -31,8 +31,8 @@ public class ConstructorTest extends BaseTest {
         Assert.assertTrue(mainPage.isTabActive(3));
     }
 
-    @DisplayName("Проверка переключения между разделами: Булки, Соусы, Начинки")
-    @Description("Раздел Булки")
+    @DisplayName("Проверка переключения на раздел 'Булки'")
+    @Description("Убедиться, что вкладка 'Булки' (1‑я) становится активной после клика")
     @Test
     public void switchToBunTest() {
         driver.get(Endpoints.BASE_URL);

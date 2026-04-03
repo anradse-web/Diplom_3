@@ -23,7 +23,7 @@ public class MainPage {
     private final By checkoutButton = By.xpath(".//button[contains(text(),'Оформить')]");
     // Добавляем объявление tabElements
     private final By tabElements = By.cssSelector("div.tab_tab");
-
+    private final By activTabElements= By.cssSelector("div[class*='tab_tab']");
     public MainPage(WebDriver driver) {
 
         this.driver = driver;
@@ -50,7 +50,7 @@ public class MainPage {
 
     @Step("Перейти к разделу конструктора {index}")
     public void clickTab(int index) {
-        List<WebElement> tabs = driver.findElements(By.cssSelector("div[class*='tab_tab']"));
+        List<WebElement> tabs = driver.findElements(activTabElements);
 
         if (index < 1 || index > tabs.size()) {
             throw new IllegalArgumentException("Некорректный индекс вкладки: " + index);
@@ -60,13 +60,13 @@ public class MainPage {
     }
     @Step("Получить количество вкладок")
     public int getTabsCount() {
-        List<WebElement> tabs = driver.findElements(By.cssSelector("div[class*='tab_tab']"));
+        List<WebElement> tabs = driver.findElements(activTabElements);
         return tabs.size();
     }
 
     @Step("Проверить активность таба {index}")
     public boolean isTabActive(int index) {
-        List<WebElement> tabs = driver.findElements(By.cssSelector("div[class*='tab_tab']"));
+        List<WebElement> tabs = driver.findElements(activTabElements);
 
         if (index < 1 || index > tabs.size()) return false;
 
